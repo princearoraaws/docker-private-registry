@@ -1,0 +1,28 @@
+variables:
+  CI_REGISTRY: registry:5000
+  CI_DEBUG_TRACE: "false"
+
+
+build:
+  image: $CI_REGISTRY/docker:19.03.12
+  stage: build
+  services:
+  - name: $CI_REGISTRY/docker:dind
+    entrypoint: ["dockerd-entrypoint.sh"]
+    command: ["--insecure-registry", "registry:5000"]
+
+  before_script:
+#    - docker pull docker:19.03.12
+#    - docker pull docker:dind
+    - docker image ls
+    - docker image ls registry:5000/*
+  
+  script:
+#    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#    - docker tag docker:dind $CI_REGISTRY/docker:dind
+#    - docker push $CI_REGISTRY/docker:dind
+    - docker image ls registry:5000/*
+  
+  after_script:
+    - docker image ls
+    - docker image ls registry:5000/*    
