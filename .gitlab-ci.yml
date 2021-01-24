@@ -25,4 +25,6 @@ build:
   
   after_script:
     - docker image ls
-    - docker image ls registry:5000/*    
+    - docker image ls registry:5000/*
+    
+     
