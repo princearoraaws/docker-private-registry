@@ -8,7 +8,7 @@ storage:
   filesystem:
     rootdirectory: /var/lib/registry
 http:
-  addr: localhost:5000
+  addr: :5000
 #  host: http://local.docker.registry:5000
   headers:
     X-Content-Type-Options: [nosniff]
@@ -21,3 +21,8 @@ health:
     enabled: true
     interval: 10s
     threshold: 3
+
+proxy:
+  remoteurl: https://registry-1.docker.io
+  username: princearoraaws
+  password: [password]
