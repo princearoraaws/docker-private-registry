@@ -24,5 +24,5 @@ health:
 
 proxy:
   remoteurl: https://registry-1.docker.io
-  username: princearoraaws
+  username: <username>
   password: [password]
